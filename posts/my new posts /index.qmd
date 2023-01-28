@@ -1,0 +1,9 @@
+---
+title: "My Journey with R"
+author: "Hanan Yafai"
+date: "2023-01-27"
+categories: [Thoughts]
+image: "Rimages.jpeg"
+---
+
+This section of my blog will be dedicated to sharing my progress in R, some thoughts of the journey including the ups and downs.

@@ -1,0 +1,13 @@
+---
+title: "Post With Code"
+author: "Hanan Yafai"
+date: "2023-01-27"
+categories: [ code, analysis]
+image: "Coding-Brain-.jpeg"
+---
+
+This is a post with executable code.
+
+```{r}
+1 + 1
+```

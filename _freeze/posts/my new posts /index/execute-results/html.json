@@ -1,0 +1,14 @@
+{
+  "hash": "972584a5be1b8a5cc5852e7fe48301fb",
+  "result": {
+    "markdown": "---\ntitle: \"My new post\"\nauthor: \"Hanan Yafai\"\ndate: \"2023-01-27\"\ncategories: [My Journey with R]\nimage: \"image.jpg\"\n---\n\n\nThis is a post with executable code.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

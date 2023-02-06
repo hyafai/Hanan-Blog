@@ -1,8 +1,8 @@
 ---
-title: "Welcome To My Blog"
+title: "Tips Sheet "
 author: "Hanan Yafai "
-date: "2023-01-24"
-categories: [news]
+date: "2023-02-06"
+categories: [notes]
 ---
 
 This is the first post in a Quarto blog. Welcome!

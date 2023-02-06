@@ -3,7 +3,9 @@ title: "My Journey with R"
 author: "Hanan Yafai"
 date: "2023-01-27"
 categories: [Thoughts]
-image: "Rimages.jpeg"
+image: "image.jpg"
 ---
+
+![](R%20.jpeg)
 
 This section of my blog will be dedicated to sharing my progress in R, some thoughts of the journey including the ups and downs.

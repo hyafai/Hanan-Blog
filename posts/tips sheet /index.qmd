@@ -3,6 +3,7 @@ title: "Tips Sheet "
 author: "Hanan Yafai "
 date: "2023-02-06"
 categories: [notes]
+image: "tips icon.png"
 ---
 
 -   how to commit and push changes to github:

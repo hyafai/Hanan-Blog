@@ -1,6 +1,9 @@
 ---
-title: "week3_qmd"
-author: "Hanan Yafai" 
+title: " Week3_qmd"
+author: "Hanan Yafai"
+date: "2023-02-15"
+categories: [notes]
+image: "logo.png"
 ---
 
 # Assignment check list:

@@ -6,9 +6,60 @@ categories: [notes]
 image: "tips icon.png"
 ---
 
--   how to commit and push changes to github:
+-   **To customize how R Studio looks to make it work for you Click:**
 
-    -   commit
-- alwyes add line between your comand 
+    -   Tools \> Global Options \> Appearance
 
-to make the r code block click options + comand + I 
+-   **To install packages this is done using** `install.packages()`
+
+    -   Important : Never install a package from inside a script. Only do this from the console pane or the packages tab of the lower right pane.
+
+    -   to load a package this is done using the `library()` function
+
+-   You can type `?function_name` in the console to access the help file.
+
+-   **Tab auto-complete**
+
+    If you write the name of the function and then press the tab key, R Studio will show you the arguments that function takes along with a brief description
+
+-   **Arguments** : sample(x, size, replace = FALSE, prob = NULL)
+
+ `x` is the list of items we want to choose from, `size` is the number of items we want to choose, `replace` is whether or not each item may be selected more than once, and `prob` gives the probability that each item is chosen. it will use defaults of `FALSE` (each item can only be chosen once) and `NULL` (all items will have equal probability of being chosen).
+
+**Example:**
+
+```{r}
+sample(size = 5, replace = TRUE, x = letters)
+```
+
+-   **Objects** can contain numbers, words, or the result of operations and analyses.
+
+    -   You assign content to an object using `<-`
+
+    ```{=html}
+    <!-- -->
+    ```
+    -   For (text) data In order for R to recognize it as text, it **must** be enclosed in double quotation marks `" "` You cant do this for numeric data.
+
+    -   To print the contents of an object, type the object's name in the console and press enter.
+
+-   **How to commit and push changes to github:**
+
+    -   Make changes to your blog, like writing a new post, or editing an old one.
+
+    -    Render the website in R-studio. What you see here should be what you will see later on Github.com
+
+    -   Open Github Desktop and **Commit your changes**, by writing brief commit title, and pressing commit.
+
+    -    Then, use Github Desktop to **Push your changes** to github.com.
+
+    -    Wait half a minute or so, and you should see your new content appear on the website.
+
+```{=html}
+<!-- -->
+```
+-   Always add line between your commands
+
+-   To quickly make the r code block click at the same time:
+
+    **(options+ command + I).**

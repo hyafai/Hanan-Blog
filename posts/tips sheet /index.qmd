@@ -9,3 +9,6 @@ image: "tips icon.png"
 -   how to commit and push changes to github:
 
     -   commit
+- alwyes add line between your comand 
+
+to make the r code block click options + comand + I 

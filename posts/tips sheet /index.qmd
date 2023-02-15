@@ -6,7 +6,7 @@ categories: [notes]
 image: "tips icon.png"
 ---
 
--   **To customize how R Studio looks to make it work for you Click:**
+-   **To customize how R Studio looks in a way that works for you Click:**
 
     -   Tools \> Global Options \> Appearance
 

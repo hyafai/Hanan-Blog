@@ -25,7 +25,7 @@
     "href": "index.html",
     "title": "Hanan-blog",
     "section": "",
-    "text": "Tips Sheet\n\n\n\n\n\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nFeb 6, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nMy Journey with R\n\n\n\n\n\n\n\nThoughts\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\nNo matching items"
+    "text": "week3_qmd\n\n\n\n\n\n\n\n\n\n\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nTips Sheet\n\n\n\n\n\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nFeb 6, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nMy Journey with R\n\n\n\n\n\n\n\nThoughts\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -39,6 +39,13 @@
     "href": "posts/tips sheet /index.html",
     "title": "Tips Sheet",
     "section": "",
-    "text": "how to commit and push changes to github:\n\ncommit"
+    "text": "how to commit and push changes to github:\n\ncommit\n\nalwyes add line between your comand\n\nto make the r code block click options + comand + I"
+  },
+  {
+    "objectID": "posts/week3_qmd /week3 .html",
+    "href": "posts/week3_qmd /week3 .html",
+    "title": "week3_qmd",
+    "section": "",
+    "text": "Assignment check list:\n\nBe able to make a new .qmd document -\n\nYes\n\nBe able to render a .qmd document\n\nyes\n\nExplain the difference between the source editor view and visual editor view in Rstudio. plain text all characters will be displayed exactly visual will render any text as rmarkdown text (will directly show the formatted texts ex: bold vs bold )\nBe able to insert simple markdown plain text (headers, lists, paragraphs), and render the document.\nBe aware of resources to help you learn more about markdown options.\nBe able to insert an R code chunk, and show the output in the rendered document.\n\nmacro for quick insert\n\n\n\n1+1\n\n[1] 2\n\n1:12\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12\n\n\n\nRunning R code chunks in a qmd\n\npressing play\ncopy/paste into console\nhighlight then command-enter (mac)\nprecedence issues (first to last)\n\nBe aware of R code chunk options, and how to use eval, messages, error, warning, and echo.\nBe able to set code chunk options per chunk, and/or for the whole document. Understand rules for precedence (which options will apply if both are set.)\nWrite inline r code.\nExplain how the rendering environment is different from the Rstudio environment.\nBe aware of more advanced quarto options for html documents, and try some of the options."
   }
 ]

@@ -59,3 +59,5 @@ Always add line between your commands
 -   To quickly make the r code block click at the same time:
 
     **(options+ command + I).**
+
+-   \$ sign give you a list of things inside your table

@@ -1,0 +1,28 @@
+---
+title: " Week4_Data Visualization"
+author: "Hanan Yafai"
+date: "2023-02-21"
+categories: [notes]
+image: "visuals.png"
+---
+
+```{r}
+#load ggplot2 and other example data set 
+library(tidyverse)
+# load the data 
+starwars_copy<- starwars
+#some of the data type we can see
+head(starwars_copy)
+class(starwars_copy$name)
+class(starwars_copy$height)
+ggplot(data=starwars_copy, mapping = aes(x=height,y=mass) )+
+ geom_point()
+
+```
+
+```{r}
+# r will assume that all numbers are double unless you add L to get rid of the dismal eg. (age)
+typeof(10L)
+typeof(10.99877634567)
+```
+

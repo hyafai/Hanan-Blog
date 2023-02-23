@@ -58,11 +58,11 @@ html_document:
 
     **(done)**
 
-9.  Be able to set code chunk options per chunk, and/or for the whole document. Understand rules for precedence (which options will apply if both are set.)
+9.  Be able to set code chunk options per chunk, and/or for the whole document. Understand rules for precedence .
 
     -   code chunk options per chunk
 
-    ```{r chunk-label, include= TRUE}
+    ```{r chunk-label, include= FALSE}
     summary(mtcars)
 
     ```
@@ -79,6 +79,7 @@ html_document:
 10. Write inline r code.
 
 ```{r}
+#| echo: FALSE
 name <- "hanan"
 age <- 21
 today <- Sys.Date()

@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
 website:
-  title: "HananBlog"
+  title: "Learning R programing"
   navbar:
     right:
       - about.qmd
@@ -12,7 +12,7 @@ website:
         href: https://twitter.com
 format:
   html:
-    theme: cosmo
+    theme: pulse
     css: styles.css
 
 editor: visual

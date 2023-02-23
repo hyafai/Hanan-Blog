@@ -4,6 +4,7 @@ author: "Hanan Yafai"
 date: "2023-02-15"
 categories: [notes]
 image: "logo.png"
+theme: "pulse"
 ---
 
 # Assignment check list:
@@ -14,25 +15,28 @@ image: "logo.png"
 
 2.  Be able to render a .qmd document
 
-    -   yes
+    -   **yes**
 
 3.  Explain the difference between the source editor view and visual editor view in Rstudio. plain text all characters will be displayed exactly visual will render any text as rmarkdown text (will directly show the formatted texts ex: **bold** vs bold )
 
 4.  Be able to insert simple markdown plain text (headers, lists, paragraphs), and render the document.
 
+    -   **done**
+
 5.  Be aware of resources to help you learn more about markdown options.
+
+    -   **done**
 
 6.  Be able to insert an R code chunk, and show the output in the rendered document.
 
     -   macro for quick insert
-    
-    
+
 ```{r}
 1+1
 1:12
 1:4
 ```
-    
+
 7.  Running R code chunks in a qmd
 
     -   pressing play
@@ -43,12 +47,29 @@ image: "logo.png"
 
     -   precedence issues (first to last)
 
+        **( done)**
+
 8.  Be aware of R code chunk options, and how to use eval, messages, error, warning, and echo.
+
+    **(done)**
 
 9.  Be able to set code chunk options per chunk, and/or for the whole document. Understand rules for precedence (which options will apply if both are set.)
 
 10. Write inline r code.
 
+```{r}
+name <- "hanan"
+age <- 21
+today <- Sys.Date()
+Ramadan <- as.Date("2023-03-21")
+```
+
+My name is `r name` and I am `r age` years old. It is `r Ramadan - today` days until Ramadan, which is my favorite religious month & holiday.
+
 11. Explain how the rendering environment is different from the Rstudio environment.
 
 12. Be aware of more advanced quarto options for html documents, and try some of the options.
+
+Yes! Use execute in top-level yml, chunk options have precedence over global options.
+
+\

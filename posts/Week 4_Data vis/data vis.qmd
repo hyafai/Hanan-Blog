@@ -7,6 +7,8 @@ image: "visuals.png"
 ---
 
 ```{r}
+#|message: False
+
 #load ggplot2 and other example data set 
 library(tidyverse)
 # load the data 
@@ -26,3 +28,37 @@ typeof(10L)
 typeof(10.99877634567)
 ```
 
+1.  Data types: Show that you understand what is available to you in R. Note also, this goal overlaps with part of the midterm project. See the appendix on Data Types in the textbook for help. Write notes and R code chunks to demonstrate your knowledge
+2.  Tidy Data: Show that you understand what this means. Give an example of data this is in tidy format, and data that is not.
+3.  ggplot2: We will continue learning about this across the semester. Show at a minimum that you can make a graph and add it to your blog. Try examples from the textbook. Show that you understand the layer concept. Identify aspects that are confusing to you so we can discuss them in class.
+
+```{r}
+my_df<- data.frame(a=1:5,
+                  b=c("one","two","three","four","five")    )
+```
+
+-   The different type of data:
+
+    -   Numeric data
+
+```{r}
+typeof(10) # double 
+typeof(10.0) # double 
+typeof(10L) # integer
+```
+
+```{r}
+survey_data <- read_csv("https://psyteachr.github.io/ads-v2/data/survey_data.csv")
+head(survey_data)
+library(ggplot2)
+ggplot(data = survey_data, 
+       mapping = aes(x=wait_time, 
+                   y= satisfaction,
+                   color= wait_time,
+             size= satisfaction)) +
+  geom_point()
+geom_smooth(method = "lm")# lm stands for linear modle
+
+ggplot(data = survey_data, 
+       mapping = aes(x=wait_time, )
+```

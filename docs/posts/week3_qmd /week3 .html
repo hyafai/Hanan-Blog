@@ -9,7 +9,7 @@
 <meta name="author" content="Hanan Yafai">
 <meta name="dcterms.date" content="2023-02-15">
 
-<title>HananBlog - Week3_qmd</title>
+<title>Learning R programing - Week3_qmd</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -136,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">HananBlog</span>
+    <span class="navbar-title">Learning R programing</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -149,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://hyafai.github.io/Hanan-Blog/"><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -215,11 +215,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><p>Be able to render a .qmd document</p>
 <ul>
-<li>yes</li>
+<li><strong>yes</strong></li>
 </ul></li>
 <li><p>Explain the difference between the source editor view and visual editor view in Rstudio. plain text all characters will be displayed exactly visual will render any text as rmarkdown text (will directly show the formatted texts ex: <strong>bold</strong> vs bold )</p></li>
-<li><p>Be able to insert simple markdown plain text (headers, lists, paragraphs), and render the document.</p></li>
-<li><p>Be aware of resources to help you learn more about markdown options.</p></li>
+<li><p>Be able to insert simple markdown plain text (headers, lists, paragraphs), and render the document.</p>
+<ul>
+<li><strong>done</strong></li>
+</ul></li>
+<li><p>Be aware of resources to help you learn more about markdown options.</p>
+<ul>
+<li><strong>done</strong></li>
+</ul></li>
 <li><p>Be able to insert an R code chunk, and show the output in the rendered document.</p>
 <ul>
 <li>macro for quick insert</li>
@@ -245,14 +251,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>pressing play</p></li>
 <li><p>copy/paste into console</p></li>
 <li><p>highlight then command-enter (mac)</p></li>
-<li><p>precedence issues (first to last)</p></li>
+<li><p>precedence issues (first to last)</p>
+<p><strong>( done)</strong></p></li>
 </ul></li>
-<li><p>Be aware of R code chunk options, and how to use eval, messages, error, warning, and echo.</p></li>
+<li><p>Be aware of R code chunk options, and how to use eval, messages, error, warning, and echo.</p>
+<p><strong>(done)</strong></p></li>
 <li><p>Be able to set code chunk options per chunk, and/or for the whole document. Understand rules for precedence (which options will apply if both are set.)</p></li>
 <li><p>Write inline r code.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="st">"hanan"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="dv">21</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>today <span class="ot">&lt;-</span> <span class="fu">Sys.Date</span>()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>Ramadan <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2023-03-21"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>My name is hanan and I am 21 years old. It is 27 days until Ramadan, which is my favorite religious month &amp; holiday.</p>
+<ol start="11" type="1">
 <li><p>Explain how the rendering environment is different from the Rstudio environment.</p></li>
 <li><p>Be aware of more advanced quarto options for html documents, and try some of the options.</p></li>
 </ol>
+<p>Yes! Use execute in top-level yml, chunk options have precedence over global options.</p>
+<p><br>
+</p>
 
 
 </section>

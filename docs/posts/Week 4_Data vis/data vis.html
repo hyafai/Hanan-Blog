@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Hanan Yafai">
-<meta name="dcterms.date" content="2023-02-21">
+<meta name="dcterms.date" content="2023-02-27">
 
-<title>HananBlog - Week4_Data Visualization</title>
+<title>Learning R programing - Week4_Data type &amp; Visualization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -136,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">HananBlog</span>
+    <span class="navbar-title">Learning R programing</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -168,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Week4_Data Visualization</h1>
+      <h1 class="title">Week4_Data type &amp; Visualization</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">notes</div>
               </div>
@@ -188,7 +188,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 21, 2023</p>
+        <p class="date">February 27, 2023</p>
       </div>
     </div>
     
@@ -206,78 +206,168 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+<p><strong>The different type of data:</strong></p>
+<ol type="1">
+<li><strong>Continuous</strong> the variables always have a[numeric] data type. They are either integers like 42 or [doubles] a data type representing a real decimal number like 3.14159</li>
+</ol>
+<p>Example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|message: False</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#load ggplot2 and other example data set </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.4.0     ✔ purrr   1.0.1
-✔ tibble  3.1.8     ✔ dplyr   1.1.0
-✔ tidyr   1.3.0     ✔ stringr 1.5.0
-✔ readr   2.1.3     ✔ forcats 1.0.0
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the data </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>starwars_copy<span class="ot">&lt;-</span> starwars</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#some of the data type we can see</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(starwars_copy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="dv">10</span>) <span class="co"># double </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 14
-  name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-1 Luke Skywal…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
-2 C-3PO           167    75 &lt;NA&gt;    gold    yellow    112   none  mascu… Tatooi…
-3 R2-D2            96    32 &lt;NA&gt;    white,… red        33   none  mascu… Naboo  
-4 Darth Vader     202   136 none    white   yellow     41.9 male  mascu… Tatooi…
-5 Leia Organa     150    49 brown   light   brown      19   fema… femin… Aldera…
-6 Owen Lars       178   120 brown,… light   blue       52   male  mascu… Tatooi…
-# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
-#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+<pre><code>[1] "double"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(starwars_copy<span class="sc">$</span>name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fl">10.0</span>) <span class="co"># double </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
+<pre><code>[1] "double"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(starwars_copy<span class="sc">$</span>height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(10L) <span class="co"># integer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "integer"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>starwars_copy, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>height,<span class="at">y=</span>mass) )<span class="sc">+</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 28 rows containing missing values (`geom_point()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="data-vis_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
-</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># r will assume that all numbers are double unless you add L to get rid of the dismal eg. (age)</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(10L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># r will assume that all numbers are double unless you add L to get rid of the dismal EX. (age)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(10L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "integer"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fl">10.99877634567</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fl">10.99877634567</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "double"</code></pre>
 </div>
 </div>
-<ol type="1">
-<li>Data types: Show that you understand what is available to you in R. Note also, this goal overlaps with part of the midterm project. See the appendix on Data Types in the textbook for help. Write notes and R code chunks to demonstrate your knowledge</li>
-<li>Tidy Data: Show that you understand what this means. Give an example of data this is in tidy format, and data that is not.</li>
-<li>ggplot2: We will continue learning about this across the semester. Show at a minimum that you can make a graph and add it to your blog. Try examples from the textbook. Show that you understand the layer concept. Identify aspects that are confusing to you so we can discuss them in class.</li>
+<ol start="2" type="1">
+<li><p><strong>Categorical</strong>:</p>
+<ul>
+<li>Categorical variables can be nominal, where the categories don’t really have an order, or ordinal where they have a clear order but the distance between the categories isn’t something you could exactly equate.</li>
+</ul>
+<!-- -->
+<ul>
+<li>Categorical data can have a character data type, also called strings. Categorical data can also be factors, a specific type of integer that lets you specify the category names and their order.</li>
+</ul></li>
+</ol>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">0</span>, .<span class="dv">5</span>)  <span class="co"># numeric vector</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">factor</span>(x)     <span class="co"># convert to factor</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>x <span class="sc">==</span> <span class="fu">as.numeric</span>(f) <span class="co"># does not convert back to numeric </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE FALSE</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li><strong>Date and Time data:</strong></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>my_df<span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">b=</span><span class="fu">c</span>(<span class="st">"one"</span>,<span class="st">"two"</span>,<span class="st">"three"</span>,<span class="st">"four"</span>,<span class="st">"five"</span>)    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the current date</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2023-03-02"</code></pre>
 </div>
+</div>
+<section id="tidy-data" class="level2">
+<h2 class="anchored" data-anchor-id="tidy-data"><strong>Tidy data:</strong></h2>
+<p><strong>Is a format for data that maps the meaning onto the structure.</strong></p>
+<p>Tidy data has three rules:</p>
+<ul>
+<li><p>Each&nbsp;[variable]&nbsp;must have its own column</p></li>
+<li><p>Each&nbsp; [observation]&nbsp;must have its own row</p></li>
+<li><p>Each&nbsp; [value]&nbsp;must have its own cell</p></li>
+</ul>
+<p>Example of tidy data :</p>
+<div class="cell" data-show_col_types="false">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tidy_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/tidy_data.csv"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tidy_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   customer_id year items price_per_item totalprice
+1            1 2018     2           3.91       7.82
+2            1 2019     8           4.72      37.76
+3            1 2020    10           5.59      55.90
+4            2 2018     1           3.91       3.91
+5            2 2019     6           4.72      28.32
+6            2 2020     1           5.59       5.59
+7            3 2018     4           3.91      15.64
+8            3 2019     5           4.72      23.60
+9            3 2020     5           5.59      27.95
+10           4 2018    10           3.91      39.10
+11           4 2019     1           4.72       4.72
+12           4 2020     3           5.59      16.77
+13           5 2018     3           3.91      11.73
+14           5 2019     9           4.72      42.48
+15           5 2020     8           5.59      44.72</code></pre>
+</div>
+</div>
+<p>Example of untidy data :</p>
+<div class="cell" data-show_col_types="false">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>untidy_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/untidy_data.csv"</span> )</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(untidy_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  customer_id itemsprice_2018 itemsprice_2019 itemsprice_2020 totalprice_2018
+1           1        2 (3.91)        8 (4.72)       10 (5.59)            7.82
+2           2        1 (3.91)        6 (4.72)        1 (5.59)            3.91
+3           3        4 (3.91)        5 (4.72)        5 (5.59)           15.64
+4           4       10 (3.91)        1 (4.72)        3 (5.59)           39.10
+5           5        3 (3.91)        9 (4.72)        8 (5.59)           11.73
+  totalprice_2019 totalprice_2020
+1           37.76           55.90
+2           28.32            5.59
+3           23.60           27.95
+4            4.72           16.77
+5           42.48           44.72</code></pre>
+</div>
+</div>
+<ul>
+<li><p><strong>Plotting the data:</strong></p>
+<ul>
+<li>A grammar of graphics (the “gg” in “ggplot”) is a standardized way to describe the components of a graphic.&nbsp;ggplot2&nbsp;uses a layered grammar of graphics, in which plots are built up in a series of layers.&nbsp;</li>
+</ul></li>
+</ul>
+<p><u><strong>The layer concepts:</strong></u></p>
+<p>First, the plot space is built <em>(layer 1)</em>; the variables are specified <em>(layer 2);</em> the type of visualization (known as a geom) that is desired for these variables is specified <em>(layer 3)</em>.</p>
+<p>geom_point()is called to visualize individual data points; a second geom is added to include a line of best fit <em>(layer 4),</em> the axis labels are edited for readability <em>(layer 5)</em>, and finally, a theme is applied to change the overall appearance of the plot (<em>layer 6).</em></p>
+<p>ggplot example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>survey_data <span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">"https://psyteachr.github.io/ads-v2/data/survey_data.csv"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(survey_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  caller_id employee_id           call_start wait_time call_time issue_category
+1      C001         E01 2020-09-22T10:47:54Z       169        34           tech
+2      C002         E01 2020-09-07T22:10:25Z       206        52           tech
+3      C003         E01 2020-07-06T12:08:59Z       207        41           tech
+4      C004         E01 2020-02-20T13:12:03Z       132        16           tech
+5      C005         E01 2020-11-08T17:42:10Z       178        20        returns
+6      C006         E01 2020-06-01T19:06:12Z       230        46        returns
+  satisfaction
+1            3
+2            2
+3            2
+4            4
+5            3
+6            2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> survey_data, </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>wait_time, </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y=</span> satisfaction,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span> wait_time,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">size=</span> satisfaction)) <span class="sc">+</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data-vis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Tips:</p>
+<ul>
+<li>lm stands for linear model</li>
+</ul>
+<p>geom_smooth(method = “lm”) ggplot(data = survey_data, mapping = aes(x=wait_time, ))</p>
+<ul>
+<li><p>|fig-width:</p></li>
+<li><p>glimpse (starwars_copy)</p></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1,0 +1,14 @@
+{
+  "hash": "1989b8aa13f3589954dcc69201d1f566",
+  "result": {
+    "markdown": "---\ntitle: \" Week5_Data import\"\nauthor: \"Hanan Yafai\"\ndate: \"2023-02-27\"\ncategories: [notes]\nimage: \"logo.png\"\ntheme: \"pulse\"\nhtml_document:\n toc: TRUE\n---\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,71 @@
+---
+title: " Week5_Data import"
+author: "Hanan Yafai"
+date: "2023-02-27"
+categories: [notes]
+image: "logo.png"
+theme: "pulse"
+html_document:
+ toc: TRUE
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)     # includes readr & tibble
+library(rio)           # for almost any data import/export
+library(haven)         # for SPSS, Stata,and SAS files
+library(readxl)        # for Excel files
+library(googlesheets4) # for Google Sheets
+```
+
+```{r}
+summary(cars)
+summary(starwars)
+```
+
+```{r}
+library(summarytools)
+#view(dfSummary(starwars))
+```
+
+# importing data
+
+```{r}
+
+```
+
+```{r}
+demo_tsv <- readr::read_tsv("data/demo.tsv")
+demo_csv <- readr::read_csv("data/demo.csv")
+demo_xls <- readxl::read_excel("data/demo.xlsx")
+demo_sav <- haven::read_sav("data/demo.sav")
+```
+
+```{r}
+gs4_deauth() # skip authorisation for public data
+
+demo_gs4  <- googlesheets4::read_sheet(
+  ss = "16dkq0YL0J7fyAwT1pdgj1bNNrheckAU_2-DKuuM6aGI"
+)
+
+
+```
+
+```{r}
+demo <- readr::read_csv("data/demo.csv")
+
+spec(demo)
+
+```
+
+# creating data
+
+```{r}
+avatar <- tibble(
+  name = c("Katara", "Toph", "Sokka"),
+  bends = c("water", "earth", NA),
+  friendly = TRUE
+)
+
+# print it
+avatar
+```

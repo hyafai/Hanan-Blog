@@ -1,0 +1,36 @@
+---
+title: " LOGICS & LOOPS"
+author: "Hanan Yafai"
+date: "2023-02-15"
+categories: [notes]
+image: "logo.png"
+theme: "pulse"
+html_document:
+ toc: TRUE
+---
+
+```{r}
+
+tweets<- readRDS("ncod_tweets.rds")
+
+
+library(tidyverse)
+hist(tweets$favorite_count)
+
+ggplot(tweets, aes(x= favorite_count))+
+  geom_histogram ()
+
+library(dplyr)
+
+filtered_data <- tweets %>%
+  filter()
+```
+
+```{r}
+favorite_summary<- summarise(tweets,
+                             mean_favs= mean(favorite_count),
+                             median_favs= median(favorite_count),
+                             min_favs= min(favorite_count),
+                             sd_favs= sd(favorite_count))
+favorite_summary
+```

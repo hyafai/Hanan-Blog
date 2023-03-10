@@ -15,23 +15,52 @@ library(rio)           # for almost any data import/export
 library(haven)         # for SPSS, Stata,and SAS files
 library(readxl)        # for Excel files
 library(googlesheets4) # for Google Sheets
+library(googledrive)
 ```
+
+## **Built-in data**
+
+```{r}
+#The data() function lists the datasets available.
+data("table1")
+```
+
+## **Looking at data**
+
+There are three main ways to look at your data in our case its table: [`View()`](https://rdrr.io/r/utils/View.html), [`print()`](https://rdrr.io/r/base/print.html), [`tibble::glimpse()`](https://pillar.r-lib.org/reference/glimpse.html).
+
+```{r}
+View(table1)
+# call print explicitly
+print(table1)
+
+# more common method of just calling object name
+table1
+```
+
+\
 
 ```{r}
 summary(cars)
-summary(starwars)
 ```
 
-```{r}
+```{r include=FALSE}
 library(summarytools)
-#view(dfSummary(starwars))
+view(dfSummary(cars))
 ```
 
-# importing data
+# **Importing data**
+
+The rio package has very straightforward functions for reading and saving data in most common formats: [`rio::import()`](https://rdrr.io/pkg/rio/man/import.html) and [`rio::export()`](https://rdrr.io/pkg/rio/man/export.html).
 
 ```{r}
-
+demo_tsv  <- import("data/demo.tsv")  # tab-separated values
+demo_csv  <- import("data/demo.csv")  # comma-separated values
+demo_xls  <- import("data/demo.xlsx") # Excel format
+demo_sav  <- import("data/demo.sav")  # SPSS format
 ```
+
+-   it is also useful to know the specific functions that are used to import different file types because it is easier to discover features to deal with complicated cases, such as when you need to skip rows, rename columns, or choose which Excel sheet to use.
 
 ```{r}
 demo_tsv <- readr::read_tsv("data/demo.tsv")
@@ -40,24 +69,27 @@ demo_xls <- readxl::read_excel("data/demo.xlsx")
 demo_sav <- haven::read_sav("data/demo.sav")
 ```
 
-```{r}
+if you keep data in Google Sheets, you can access it directly from R using `<pkg>googlesheets4","https://googlesheets4.tidyverse.org/")`. The code below imports data from a [public sheet](https://docs.google.com/spreadsheets/d/16dkq0YL0J7fyAwT1pdgj1bNNrheckAU_2-DKuuM6aGI). You can set the `ss` argument to the entire [URL](https://psyteachr.github.io/glossary/u#url "The address of a web page (uniform resource locator)") for the target sheet, or just the section after "https://docs.google.com/spreadsheets/d/".
+
+```{r include=FALSE}
 gs4_deauth() # skip authorisation for public data
 
 demo_gs4  <- googlesheets4::read_sheet(
   ss = "16dkq0YL0J7fyAwT1pdgj1bNNrheckAU_2-DKuuM6aGI"
 )
 
-
 ```
+
+The readr functions display a message when you import data explaining what [data type](https://psyteachr.github.io/glossary/d#data-type "The kind of data represented by an object.") each column is.
 
 ```{r}
 demo <- readr::read_csv("data/demo.csv")
 
-spec(demo)
-
 ```
 
-# creating data
+# Creating data:
+
+-   When creating a small data table from scratch in R, use the [`tibble::tibble()`](https://tibble.tidyverse.org/reference/tibble.html) function, and type the data right in. The `tibble` package is part of the [tidyverse](https://psyteachr.github.io/glossary/t#tidyverse "A set of R packages that help you create and work with tidy data") package that we loaded at the start of this chapter
 
 ```{r}
 avatar <- tibble(
@@ -68,4 +100,78 @@ avatar <- tibble(
 
 # print it
 avatar
+```
+
+You can also use the [`tibble::tribble()`](https://tibble.tidyverse.org/reference/tribble.html) function to create a table by row, rather than by column. You start by listing the column names, each preceded by a tilde (`~`), then you list the values for each column, row by row, separated by commas (don't forget a comma at the end of each row).
+
+```{r}
+avatar_by_row <- tribble(
+  ~name,    ~bends,  ~friendly,
+  "Katara", "water", TRUE,
+  "Toph",   "earth", TRUE,
+  "Sokka",  NA,      TRUE
+)
+```
+
+## **Writing data:**
+
+-   example of writing my data
+
+```{r}
+# create the table
+family <- tribble(
+  ~first_name, ~last_name, ~age,
+  "saba", "alammari", 35,
+  "karim", "yafai", 40
+)
+
+# save the data to CSV
+export(family, "data/family.csv")
+
+# remove the object from the environment
+remove(family)
+
+# load the data
+family <- import("data/family.csv")
+```
+
+-   Writing data using Google sheets:
+
+```{r}
+# authorise your account 
+# this only needs to be done once per script
+#gs4_deauth()
+#gs4_auth(email = "yafai.h12@gmail.com")
+# create a new sheet
+#sheet_id <- gs4_create(name = "demo-file", 
+ #                      sheets = "letters")
+
+# define the data table to save
+#letter_data <- tibble(
+#  character = LETTERS[1:5],
+#  integer = 1:5,
+#  double = c(1.1, 2.2, 3.3, 4.4, 5.5),
+#  logical = c(T, F, T, F, T),
+#  date = lubridate::today()
+#)
+
+#write_sheet(data = letter_data, 
+ #           ss = sheet_id, 
+ #           sheet = "letters")
+
+## append some data
+#new_data <- tibble(
+#  character = "F",
+#  integer = 6L,
+#  double = 6.6,
+ # logical = FALSE,
+#  date = lubridate::today()
+#)
+#sheet_append(data = new_data,
+#             ss = sheet_id,
+#             sheet = "letters")
+
+# read the data
+#demo <- read_sheet(ss = sheet_id, sheet = "letters")
+#glimpse(sheet_id)
 ```

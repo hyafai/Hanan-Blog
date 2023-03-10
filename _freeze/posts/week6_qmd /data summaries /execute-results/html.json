@@ -1,0 +1,16 @@
+{
+  "hash": "51bb2349cb14986a798cdcb4f6b00eb3",
+  "result": {
+    "markdown": "---\ntitle: \" LOGICS & LOOPS\"\nauthor: \"Hanan Yafai\"\ndate: \"2023-02-15\"\ncategories: [notes]\nimage: \"logo.png\"\ntheme: \"pulse\"\nhtml_document:\n toc: TRUE\n---\n\n::: {.cell}\n\n```{.r .cell-code}\ntweets<- readRDS(\"ncod_tweets.rds\")\n\n\nlibrary(tidyverse)\n```\n\n::: {.cell-output .cell-output-stderr}\n```\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.0     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.1     ✔ tibble    3.1.8\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the \u001b]8;;http://conflicted.r-lib.org/\u0007conflicted package\u001b]8;;\u0007 to force all conflicts to become errors\n```\n:::\n\n```{.r .cell-code}\nhist(tweets$favorite_count)\n```\n\n::: {.cell-output-display}\n![](data-summaries-_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n\n```{.r .cell-code}\nggplot(tweets, aes(x= favorite_count))+\n  geom_histogram ()\n```\n\n::: {.cell-output .cell-output-stderr}\n```\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n```\n:::\n\n::: {.cell-output-display}\n![](data-summaries-_files/figure-html/unnamed-chunk-1-2.png){width=672}\n:::\n\n```{.r .cell-code}\nlibrary(dplyr)\n\nfiltered_data <- tweets %>%\n  filter()\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nfavorite_summary<- summarise(tweets,\n                             mean_favs= mean(favorite_count),\n                             median_favs= median(favorite_count),\n                             min_favs= min(favorite_count),\n                             sd_favs= sd(favorite_count))\nfavorite_summary\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n# A tibble: 1 × 4\n  mean_favs median_favs min_favs sd_favs\n      <dbl>       <dbl>    <int>   <dbl>\n1      29.7           3        0    330.\n```\n:::\n:::\n",
+    "supporting": [
+      "data-summaries-_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

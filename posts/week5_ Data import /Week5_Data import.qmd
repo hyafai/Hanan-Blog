@@ -129,10 +129,11 @@ family <- tribble(
 export(family, "data/family.csv")
 
 # remove the object from the environment
-remove(family)
+#remove(family)
 
 # load the data
 family <- import("data/family.csv")
+print(family)
 ```
 
 -   Writing data using Google sheets:

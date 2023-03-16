@@ -103,7 +103,6 @@ View(Art_in_DOE_buildings)
 ```
 ```{r}
 NYC_School_Art <- summarise(Art_in_DOE_buildings,
-                      BLDGID,
                       Artist_FirstName,
                       Artist_Lastname,
                       Borough,

@@ -1,5 +1,5 @@
 ---
-title: " data summaries"
+title: " Data Summaries"
 author: "Hanan Yafai"
 date: "2023-03-08"
 categories: [notes]
@@ -33,6 +33,7 @@ filtered_data <- tweets %>%
 ```
 
 The summarise() function from the dplyr package is loaded as part of the tidyverse and creates summary statistics. It creates a new table with columns that summarise the data from a larger table using summary functions.
+
 ```{r}
 favorite_summary<- summarise(tweets,
                              mean_favs= mean(favorite_count),
@@ -43,14 +44,12 @@ favorite_summary<- summarise(tweets,
 favorite_summary
 ```
 
-
 ```{r}
 ggplot(tweets, aes(x = favorite_count)) +
   geom_histogram(bins = 25) +
   scale_x_continuous(trans = "pseudo_log", 
                      breaks = c(0, 1, 10, 100, 1000, 10000))
 ```
-
 
 ```{r}
 tweet_summary <- tweets %>%
@@ -63,8 +62,7 @@ tweet_summary <- tweets %>%
 glimpse(tweet_summary)
 ```
 
- The $ operator:
- The dollar sign allows you to select items from an object, such as columns from a table. The left-hand side is the object, and the right-hand side is the item. When you call a column like this, R will print all the observations in that column.
+The \$ operator: The dollar sign allows you to select items from an object, such as columns from a table. The left-hand side is the object, and the right-hand side is the item. When you call a column like this, R will print all the observations in that column.
 
 ```{r}
 tweet_summary$mean_favs
@@ -72,15 +70,15 @@ tweets$source[1] # select one observation
 tweets$display_text_width[c(20,30,40)] # select multiple with c()
 ```
 
-Pipes allow you to send the output from one function straight into another function. Specifically, they send the result of the function before %>% to be the first argument of the function after %>%. It can be useful to translate the pipe as “and then”. 
+Pipes allow you to send the output from one function straight into another function. Specifically, they send the result of the function before %\>% to be the first argument of the function after %\>%. It can be useful to translate the pipe as "and then".
+
 ```{r}
 tweet_summary <- tweets %>% # start with the object tweets and then
   summarise(mean_favs = mean(favorite_count), #summarise it
             median_favs = median(favorite_count))
 ```
 
-Inline coding
-To insert those values into the text of a report you can use inline coding. First. we’ll create another set of objects that contain the first and last date of the tweets in our dataset. format() formats the dates to day/month/year.
+Inline coding To insert those values into the text of a report you can use inline coding. First. we'll create another set of objects that contain the first and last date of the tweets in our dataset. format() formats the dates to day/month/year.
 
 ```{r}
 date_from <- tweet_summary$min_date %>% 
@@ -91,9 +89,10 @@ date_to <- tweet_summary$max_date %>%
 
 There were `r tweet_summary$n` tweets between `r date_from` and `r date_to`.
 
-extra challenge 
+extra challenge
 
 Art_in_DOE_Buildings
+
 ```{r}
 library(readr)
 Art_in_DOE_buildings <- read_csv("Art_in_DOE_buildings.csv")
@@ -101,6 +100,7 @@ View(Art_in_DOE_buildings)
 
 
 ```
+
 ```{r}
 NYC_School_Art <- summarise(Art_in_DOE_buildings,
                       Artist_FirstName,
@@ -110,13 +110,5 @@ NYC_School_Art <- summarise(Art_in_DOE_buildings,
                                  
 NYC_School_Art
 ```
-Artwork Title
-Artist_Lastname
-Artist_FirstName
-Medium
-Artwork Year
-Dimension
-BLDGID
-School Name
-Borough
 
+Artwork Title Artist_Lastname Artist_FirstName Medium Artwork Year Dimension BLDGID School Name Borough

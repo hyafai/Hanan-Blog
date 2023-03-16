@@ -8,10 +8,3 @@ theme: "pulse"
 html_document:
  toc: TRUE
 ---
-
-```{r}
-library(tidyverse)
-
-ggplot(student_preformance, )
-```
-

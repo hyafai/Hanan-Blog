@@ -1,0 +1,17 @@
+---
+title: " LOGICS & LOOPS"
+author: "Hanan Yafai"
+date: "2023-02-15"
+categories: [notes]
+image: "logo.png"
+theme: "pulse"
+html_document:
+ toc: TRUE
+---
+
+```{r}
+library(tidyverse)
+
+ggplot(student_preformance, )
+```
+

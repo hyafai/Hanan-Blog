@@ -1,10 +1,12 @@
 ---
-title: " Data Summaries"
+title: " Week3_qmd"
 author: "Hanan Yafai"
-date: "2023-03-08"
+date: "2023-02-15"
 categories: [notes]
 image: "logo.png"
 theme: "pulse"
+html_document:
+ toc: TRUE
 ---
 
 ```{r}
@@ -16,8 +18,6 @@ library(kableExtra)  # for nice tables
 ```{r}
 
 tweets<- readRDS("ncod_tweets.rds")
-
-
 
 hist(tweets$favorite_count)
 
@@ -71,6 +71,7 @@ tweets$display_text_width[c(20,30,40)] # select multiple with c()
 Pipes allow you to send the output from one function straight into another function. Specifically, they send the result of the function before %\>% to be the first argument of the function after %\>%. It can be useful to translate the pipe as "and then".
 
 ```{r}
+
 tweet_summary <- tweets %>% # start with the object tweets and then
   summarise(mean_favs = mean(favorite_count), #summarise it
             median_favs = median(favorite_count))
@@ -79,6 +80,7 @@ tweet_summary <- tweets %>% # start with the object tweets and then
 Inline coding To insert those values into the text of a report you can use inline coding. First. we'll create another set of objects that contain the first and last date of the tweets in our dataset. format() formats the dates to day/month/year.
 
 ```{r}
+
 date_from <- tweet_summary$min_date %>% 
   format("%d %B, %Y")
 date_to <- tweet_summary$max_date %>% 
@@ -107,5 +109,3 @@ NYC_School_Art <- summarise(Art_in_DOE_buildings,
                                  
 NYC_School_Art
 ```
-
-Artwork Title Artist_Lastname Artist_FirstName Medium Artwork Year Dimension BLDGID School Name Borough

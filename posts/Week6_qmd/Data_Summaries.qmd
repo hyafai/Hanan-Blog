@@ -1,5 +1,5 @@
 ---
-title: " test_qmd"
+title: " Data_Summaries"
 author: "Hanan Yafai"
 date: "2023-02-29"
 categories: [notes]
@@ -9,7 +9,7 @@ html_document:
  toc: TRUE
 ---
 
-```{r}
+```{r  include= FALSE}
 library(tidyverse)   # data wrangling functions
 library(rtweet)      # for searching tweets
 library(kableExtra)  # for nice tables
@@ -30,7 +30,7 @@ filtered_data <- tweets %>%
   filter()
 ```
 
-The summarise() function from the dplyr package is loaded as part of the tidyverse and creates summary statistics. It creates a new table with columns that summarise the data from a larger table using summary functions.
+-   **The summarise() function from the dplyr package is loaded as part of the tidyverse and creates summary statistics. It creates a new table with columns that summarise the data from a larger table using summary functions.**
 
 ```{r}
 favorite_summary<- summarise(tweets,
@@ -60,7 +60,7 @@ tweet_summary <- tweets %>%
 glimpse(tweet_summary)
 ```
 
-The \$ operator: The dollar sign allows you to select items from an object, such as columns from a table. The left-hand side is the object, and the right-hand side is the item. When you call a column like this, R will print all the observations in that column.
+-   **The \$ operator: The dollar sign allows you to select items from an object, such as columns from a table. The left-hand side is the object, and the right-hand side is the item. When you call a column like this, R will print all the observations in that column:**
 
 ```{r}
 tweet_summary$mean_favs
@@ -68,7 +68,7 @@ tweets$source[1] # select one observation
 tweets$display_text_width[c(20,30,40)] # select multiple with c()
 ```
 
-Pipes allow you to send the output from one function straight into another function. Specifically, they send the result of the function before %\>% to be the first argument of the function after %\>%. It can be useful to translate the pipe as "and then".
+-   **Pipes allow you to send the output from one function straight into another function. Specifically, they send the result of the function before %\>% to be the first argument of the function after %\>%. It can be useful to translate the pipe as "and then":**
 
 ```{r}
 
@@ -89,9 +89,9 @@ date_to <- tweet_summary$max_date %>%
 
 There were `r tweet_summary$n` tweets between `r date_from` and `r date_to`.
 
-extra challenge
+-   Extra challenge
 
-Art_in_DOE_Buildings
+Using the open NYC data source i picked the following data set : Art_in_DOE_Buildings
 
 ```{r}
 library(readr)
@@ -104,8 +104,18 @@ View(Art_in_DOE_buildings)
 NYC_School_Art <- summarise(Art_in_DOE_buildings,
                       Artist_FirstName,
                       Artist_Lastname,
-                      Borough,
-                      Medium)
+                      `Artwork Title`,
+                      `School Name`,
+                      Borough)
                                  
 NYC_School_Art
+```
+
+```{r}
+library(ggplot2)
+ggplot(data = NYC_School_Art, 
+       mapping = aes(x=Borough, 
+                   y= `Artwork Title`,
+                   color=`School Name`)) +
+  geom_point()
 ```

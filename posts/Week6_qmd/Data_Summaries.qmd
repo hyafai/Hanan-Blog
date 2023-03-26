@@ -106,6 +106,7 @@ NYC_School_Art <- summarise(Art_in_DOE_buildings,
                       Artist_Lastname,
                       `Artwork Title`,
                       `School Name`,
+                      `Artwork Year`,
                       Borough)
                                  
 NYC_School_Art
@@ -113,9 +114,11 @@ NYC_School_Art
 
 ```{r}
 library(ggplot2)
-ggplot(data = NYC_School_Art, 
-       mapping = aes(x=Borough, 
-                   y= `Artwork Title`,
-                   color=`School Name`)) +
-  geom_point()
+
+ggplot(NYC_School_Art, aes(x = Borough)) +
+  geom_bar() +
+  scale_x_discrete() +
+  scale_y_log10()
+
+
 ```

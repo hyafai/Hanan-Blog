@@ -336,7 +336,8 @@ num (1): Accession
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                      Artist_Lastname,</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                      <span class="st">`</span><span class="at">Artwork Title</span><span class="st">`</span>,</span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>                      <span class="st">`</span><span class="at">School Name</span><span class="st">`</span>,</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>                      Borough)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>                      <span class="st">`</span><span class="at">Artwork Year</span><span class="st">`</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>                      Borough)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Returning more (or less) than 1 row per `summarise()` group was deprecated in
 dplyr 1.1.0.
@@ -346,29 +347,30 @@ dplyr 1.1.0.
 </div>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>NYC_School_Art</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2,273 × 5
-   Artist_FirstName Artist_Lastname `Artwork Title`              Schoo…¹ Borough
-   &lt;chr&gt;            &lt;chr&gt;           &lt;chr&gt;                        &lt;chr&gt;   &lt;chr&gt;  
- 1 COSTANTINO       NIVOLA          "ROOF PROMENADE SCULPTURE"   "LOUIS… MANHAT…
- 2 COSTANTINO       NIVOLA          "RELIEF PANELS"              "LOUIS… MANHAT…
- 3 COSTANTINO       NIVOLA          "\"SCULPTURED PANELS\""      "I.S. … MANHAT…
- 4 OTELLO           GUARDUCCI       "THE LIFE OF SAMUEL DICKSTE… "J.H.S… MANHAT…
- 5 JOHN             MATT            "CITY OF MANHATTAN"          "I.S. … MANHAT…
- 6 JACK             HASTINGS        "BRONZE SCULPTURES"          "ARTHU… MANHAT…
- 7 WILLIAM          TARR            "MARTIN LUTHER KING, JR. ME… "\"MAR… 399    
- 8 JOHN             TERKEN          "\"POTTERY\""                "P.S. … BRONX  
- 9 GWEN             LUX             "SUN, BIRDS, AND LIGHT/ EAG… "P.S. … MANHAT…
-10 GWEN             LUX             "SUN, BIRDS, AND LIGHT/ EAG… "P.S. … MANHAT…
-# … with 2,263 more rows, and abbreviated variable name ¹​`School Name`</code></pre>
+<pre><code># A tibble: 2,273 × 6
+   Artist_FirstName Artist_Lastname `Artwork Title`      Schoo…¹ Artwo…² Borough
+   &lt;chr&gt;            &lt;chr&gt;           &lt;chr&gt;                &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+ 1 COSTANTINO       NIVOLA          "ROOF PROMENADE SCU… "LOUIS… 01/01/… MANHAT…
+ 2 COSTANTINO       NIVOLA          "RELIEF PANELS"      "LOUIS… 01/01/… MANHAT…
+ 3 COSTANTINO       NIVOLA          "\"SCULPTURED PANEL… "I.S. … 01/01/… MANHAT…
+ 4 OTELLO           GUARDUCCI       "THE LIFE OF SAMUEL… "J.H.S… 01/01/… MANHAT…
+ 5 JOHN             MATT            "CITY OF MANHATTAN"  "I.S. … 01/01/… MANHAT…
+ 6 JACK             HASTINGS        "BRONZE SCULPTURES"  "ARTHU… 01/01/… MANHAT…
+ 7 WILLIAM          TARR            "MARTIN LUTHER KING… "\"MAR… 01/01/… 399    
+ 8 JOHN             TERKEN          "\"POTTERY\""        "P.S. … 01/01/… BRONX  
+ 9 GWEN             LUX             "SUN, BIRDS, AND LI… "P.S. … 01/01/… MANHAT…
+10 GWEN             LUX             "SUN, BIRDS, AND LI… "P.S. … 01/01/… MANHAT…
+# … with 2,263 more rows, and abbreviated variable names ¹​`School Name`,
+#   ²​`Artwork Year`</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> NYC_School_Art, </span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>Borough, </span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y=</span> <span class="st">`</span><span class="at">Artwork Title</span><span class="st">`</span>,</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span><span class="st">`</span><span class="at">School Name</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(NYC_School_Art, <span class="fu">aes</span>(<span class="at">x =</span> Borough)) <span class="sc">+</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>() <span class="sc">+</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Data_Summaries_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>

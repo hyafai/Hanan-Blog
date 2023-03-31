@@ -178,6 +178,94 @@ for (i in a) {
 #> [1] "I'm a 1"
 ```
 
+```{r}
+# sum numbers from 1 to 100
+sum(1:100)
+#1+2+3+4
+a <- 0
+for(i in 1:100){
+  a <- a+i
+}
+a
+
+```
+
+```{r}
+
+sum(50:100)
+sum(500:1000)
+sum_sequence <- function(min,max){
+  return(sum(min:max))
+  
+}
+sum_sequence(min = 5, max = 100)
+sum_sequence_loop <- function(min,max){
+  
+  a <- 0
+  
+  for(i in min:max){
+    a <- a+i
+  }
+  
+  return(a)
+  
+}
+
+sum_sequence_loop(1,10)
+```
+
+```{r}
+ random_numbers <-runif(n = 1000,min=0,max=1000)
+ 
+ hist(random_numbers)
+ 
+ 
+  normal_numbers <-rnorm(n = 1000,0,10)
+ 
+ hist(normal_numbers)
+ 
+ sample(1:6, 1)
+ 
+```
+
+\## Write your own descriptive stats functions
+
+```{r}
+#using as few intrinsic functions as possible
+
+## mean
+some_numbers <- 1:10
+mean(some_numbers)
+mean_A <- function(x) {
+  return(sum(x) / length(x))
+}
+mean_A(some_numbers)
+##
+some_numbers <- 1:10
+temp_sum <- 0
+temp_length <- 0
+for(i in some_numbers){
+  temp_sum <- temp_sum+i
+  temp_length <- temp_length+1
+}
+temp_sum
+temp_length
+temp_sum/temp_length
+mean_B <- function(x){
+  
+  temp_sum <- 0
+  temp_length <- 0
+  for (i in x) {
+    temp_sum <- temp_sum + i
+    temp_length <- temp_length + 1
+  }
+  
+  return(temp_sum/temp_length)
+}
+mean_B(1:100)
+
+```
+
 ### **function syntax**
 
 ```{r}
@@ -187,9 +275,159 @@ function_name <- function(input1, input2) {
 }
 ```
 
+```{r}
+# Declare a custom function to calculate the area of a circle
+circle_area <- function(radius) {
+  pi * radius^2
+}
+
+# Call the function with a radius of 3
+circle_area(3)
+
+```
+
+```{r}
+## Solve fizz buzz problem
+for(i in 1:100) {
+  if(i %% 3 == 0 & i %% 5 == 0) {
+    print("FizzBuzz")
+  } else if(i %% 3 == 0) {
+    print("Fizz")
+  } else if(i %% 5 == 0) {
+    print("Buzz")
+  } else {
+    print(i)
+  }
+}
+```
+
+```{r}
+# rolling a dice with sample
+sample(c(1,2,3,4,5,6),1)
+#> [1] 5
+sample(c(1,2,3,4,5,6),1)
+#> [1] 4
+sample(c(1,2,3,4,5,6),1)
+#> [1] 4
+```
+
+```{r}
+# Define the snakes and ladders as a list of start and end positions
+snakes_and_ladders <- list(`14` = 4, `19` = 8, `24` = 16, `34` = 30, `40` = 28, `48` = 36, `54` = 46, `62` = 45, `64` = 60, `74` = 68, `89` = 53, `92` = 88, `95` = 75, `99` = 80)
+
+
+
+# Define a function to simulate playing the game
+play_snakes_and_ladders <- function() {
+  # Initialize the player's position and the number of rolls
+  position <- 0
+  num_rolls <- 0
+  
+  # Continue rolling the dice and moving the player until they reach the end of the board (position 100)
+  while (position < 100) {
+    # Roll the dice
+    roll <- sample(1:6, 1)
+    num_rolls <- num_rolls + 1
+    
+    # Move the player forward by the number of squares rolled
+    position <- position + roll
+    
+    # Check if the player lands on a snake or ladder
+    if (as.character(position) %in% names(snakes_and_ladders)) {
+      # If the player lands on a snake or ladder, move them to the corresponding end position
+      position <- snakes_and_ladders[[as.character(position)]]
+    }
+    
+    # If the player overshoots the end of the board, move them back by the excess number of squares
+    if (position > 100) {
+      position <- 100 - (position - 100)
+    }
+  }
+  
+  # Return the number of rolls it took to complete the game
+  return(num_rolls)
+}
+
+# Simulate 1000 games and record the number of rolls it takes to complete each game
+num_rolls <- replicate(1000, play_snakes_and_ladders())
+
+# Calculate the average number of rolls needed to complete the game
+mean(num_rolls)
+
+```
+
 paste() function
 
 i could be the name of the variable\
 i is the iterator
 
 rm(i)
+
+```{r}
+# Define the snakes and ladders
+snakes_and_ladders <- listsnakes_and_ladders <- list(`14` = 4, `19` = 8, `24` = 16, `34` = 30, `40` = 28, `48` = 36, `54` = 46, `62` = 45, `64` = 60, `74` = 68, `89` = 53, `92` = 88, `95` = 75, `99` = 80)
+# Define a function to simulate one game of Snakes and Ladders
+play_game <- function() {
+  total_sum <- 0
+  number_of_rolls <- 0
+  position <- 0  # start at the beginning of the board
+  
+  while(position < 100) {
+    number_of_rolls <- number_of_rolls + 1
+    roll <- sample(c(1, 2, 3, 4, 5, 6), 1)
+    total_sum <- total_sum + roll
+    
+    if(total_sum > 100) {
+      total_sum <- total_sum - roll
+    } else {
+      # Check if the roll lands on a ladder or a snake
+      new_position <- ifelse(names(snakes_and_ladders) == as.character(total_sum), unlist(snakes_and_ladders[as.character(total_sum)]), total_sum)
+      position <- new_position
+    }
+  }
+  
+  number_of_rolls
+}
+
+# Record the results from multiple simulations
+set.seed(123)
+save_rolls <- replicate(1000, play_game())
+
+# Estimate the average number of rolls needed to successfully complete the game
+mean(save_rolls)
+
+```
+
+```{r}
+# Define the snakes and ladders
+snakes_and_ladders <- list(`14` = 4, `19` = 8, `24` = 16, `34` = 30, `40` = 28, `48` = 36, `54` = 46, `62` = 45, `64` = 60, `74` = 68, `89` = 53, `92` = 88, `95` = 75, `99` = 80)
+
+play_game <- function() {
+  total_sum <- 0
+  number_of_rolls <- 0
+  position <- 0  # start at the beginning of the board
+  
+  while(position < 100) {
+    number_of_rolls <- number_of_rolls + 1
+    roll <- sample(c(1, 2, 3, 4, 5, 6), 1)
+    total_sum <- total_sum + roll
+    
+    if(total_sum > 100) {
+      total_sum <- total_sum - roll
+    } else {
+      # Check if the roll lands on a ladder or a snake
+      new_position <- ifelse(names(snakes_and_ladders) == as.character(total_sum), unlist(snakes_and_ladders[as.character(total_sum)]), total_sum)
+      position <- ifelse(length(new_position) > 1, new_position[1], new_position)
+    }
+  }
+  
+  number_of_rolls
+}
+
+# Record the results from multiple simulations
+set.seed(123)
+save_rolls <- replicate(1000, play_game())
+
+# Estimate the average number of rolls needed to successfully complete the game
+mean(save_rolls)
+```

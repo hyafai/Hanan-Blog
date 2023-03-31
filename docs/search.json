@@ -81,7 +81,7 @@
     "href": "index.html",
     "title": "Hanan-blog",
     "section": "",
-    "text": "Data_Summaries\n\n\n\n\n\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nMar 29, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nWeek4_Data type & Visualization\n\n\n\n\n\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nFeb 27, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nWeek5_Data import\n\n\n\n\n\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nFeb 27, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nweek3_qmd\n\n\n\n\n\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nLOGICS & LOOPS\n\n\n\n\n\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nLOGICS, LOOPS & FUNCTIONS\n\n\n\n\n\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nTips Sheet\n\n\n\n\n\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nFeb 6, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nMy Journey with R\n\n\n\n\n\n\n\nThoughts\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\nNo matching items"
+    "text": "Data_Summaries\n\n\n\n\n\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nMar 29, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nVideo game review report\n\n\n\n\n\n\n\nReport\n\n\n\n\n\n\n\n\n\n\n\nMar 27, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nWeek4_Data type & Visualization\n\n\n\n\n\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nFeb 27, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nWeek5_Data import\n\n\n\n\n\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nFeb 27, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nweek3_qmd\n\n\n\n\n\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nLOGICS & LOOPS\n\n\n\n\n\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nLOGICS, LOOPS & FUNCTIONS\n\n\n\n\n\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nTips Sheet\n\n\n\n\n\n\n\nnotes\n\n\n\n\n\n\n\n\n\n\n\nFeb 6, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\n  \n\n\n\n\nMy Journey with R\n\n\n\n\n\n\n\nThoughts\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2023\n\n\nHanan Yafai\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -103,5 +103,54 @@
     "title": "Data_Summaries",
     "section": "",
     "text": "tweets<- readRDS(\"ncod_tweets.rds\")\n\nhist(tweets$favorite_count)\n\n\n\nggplot(tweets, aes(x= favorite_count))+\n  geom_histogram ()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\nlibrary(dplyr)\n\nfiltered_data <- tweets %>%\n  filter()\n\n\nThe summarise() function from the dplyr package is loaded as part of the tidyverse and creates summary statistics. It creates a new table with columns that summarise the data from a larger table using summary functions.\n\n\nfavorite_summary<- summarise(tweets,\n                             mean_favs= mean(favorite_count),\n                             median_favs= median(favorite_count),\n                             min_favs= min(favorite_count),\n                             sd_favs= sd(favorite_count))\n\nfavorite_summary\n\n# A tibble: 1 × 4\n  mean_favs median_favs min_favs sd_favs\n      <dbl>       <dbl>    <int>   <dbl>\n1      29.7           3        0    330.\n\n\n\nggplot(tweets, aes(x = favorite_count)) +\n  geom_histogram(bins = 25) +\n  scale_x_continuous(trans = \"pseudo_log\", \n                     breaks = c(0, 1, 10, 100, 1000, 10000))\n\n\n\n\n\ntweet_summary <- tweets %>%\n  summarise(mean_favs = mean(favorite_count),\n            median_favs = quantile(favorite_count, .5),\n            n = n(),\n            min_date = min(created_at),\n            max_date = max(created_at))\n\nglimpse(tweet_summary)\n\nRows: 1\nColumns: 5\n$ mean_favs   <dbl> 29.71732\n$ median_favs <dbl> 3\n$ n           <int> 28626\n$ min_date    <dttm> 2021-10-10 00:10:02\n$ max_date    <dttm> 2021-10-12 20:12:27\n\n\n\nThe $ operator: The dollar sign allows you to select items from an object, such as columns from a table. The left-hand side is the object, and the right-hand side is the item. When you call a column like this, R will print all the observations in that column:\n\n\ntweet_summary$mean_favs\n\n[1] 29.71732\n\ntweets$source[1] # select one observation\n\n[1] \"Twitter for Android\"\n\ntweets$display_text_width[c(20,30,40)] # select multiple with c()\n\n[1]  78 287 107\n\n\n\nPipes allow you to send the output from one function straight into another function. Specifically, they send the result of the function before %>% to be the first argument of the function after %>%. It can be useful to translate the pipe as “and then”:\n\n\ntweet_summary <- tweets %>% # start with the object tweets and then\n  summarise(mean_favs = mean(favorite_count), #summarise it\n            median_favs = median(favorite_count))\n\nInline coding To insert those values into the text of a report you can use inline coding. First. we’ll create another set of objects that contain the first and last date of the tweets in our dataset. format() formats the dates to day/month/year.\n\ndate_from <- tweet_summary$min_date %>% \n  format(\"%d %B, %Y\")\n\nWarning: Unknown or uninitialised column: `min_date`.\n\ndate_to <- tweet_summary$max_date %>% \n  format(\"%d %B, %Y\")\n\nWarning: Unknown or uninitialised column: `max_date`.\n\n\nThere were tweets between NULL and NULL.\n\nExtra challenge\n\nUsing the open NYC data source i picked the following data set : Art_in_DOE_Buildings\n\nlibrary(readr)\nArt_in_DOE_buildings <- read_csv(\"Art_in_DOE_buildings.csv\")\n\nRows: 2273 Columns: 10\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (9): Artwork Title, Artist_Lastname, Artist_FirstName, Medium, Artwork Y...\nnum (1): Accession\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nView(Art_in_DOE_buildings)\n\n\nNYC_School_Art <- summarise(Art_in_DOE_buildings,\n                      Artist_FirstName,\n                      Artist_Lastname,\n                      `Artwork Title`,\n                      `School Name`,\n                      `Artwork Year`,\n                      Borough)\n\nWarning: Returning more (or less) than 1 row per `summarise()` group was deprecated in\ndplyr 1.1.0.\nℹ Please use `reframe()` instead.\nℹ When switching from `summarise()` to `reframe()`, remember that `reframe()`\n  always returns an ungrouped data frame and adjust accordingly.\n\nNYC_School_Art\n\n# A tibble: 2,273 × 6\n   Artist_FirstName Artist_Lastname `Artwork Title`      Schoo…¹ Artwo…² Borough\n   <chr>            <chr>           <chr>                <chr>   <chr>   <chr>  \n 1 COSTANTINO       NIVOLA          \"ROOF PROMENADE SCU… \"LOUIS… 01/01/… MANHAT…\n 2 COSTANTINO       NIVOLA          \"RELIEF PANELS\"      \"LOUIS… 01/01/… MANHAT…\n 3 COSTANTINO       NIVOLA          \"\\\"SCULPTURED PANEL… \"I.S. … 01/01/… MANHAT…\n 4 OTELLO           GUARDUCCI       \"THE LIFE OF SAMUEL… \"J.H.S… 01/01/… MANHAT…\n 5 JOHN             MATT            \"CITY OF MANHATTAN\"  \"I.S. … 01/01/… MANHAT…\n 6 JACK             HASTINGS        \"BRONZE SCULPTURES\"  \"ARTHU… 01/01/… MANHAT…\n 7 WILLIAM          TARR            \"MARTIN LUTHER KING… \"\\\"MAR… 01/01/… 399    \n 8 JOHN             TERKEN          \"\\\"POTTERY\\\"\"        \"P.S. … 01/01/… BRONX  \n 9 GWEN             LUX             \"SUN, BIRDS, AND LI… \"P.S. … 01/01/… MANHAT…\n10 GWEN             LUX             \"SUN, BIRDS, AND LI… \"P.S. … 01/01/… MANHAT…\n# … with 2,263 more rows, and abbreviated variable names ¹​`School Name`,\n#   ²​`Artwork Year`\n\n\n\nlibrary(ggplot2)\n\nggplot(NYC_School_Art, aes(x = Borough)) +\n  geom_bar() +\n  scale_x_discrete() +\n  scale_y_log10()"
+  },
+  {
+    "objectID": "posts/Week9_qmd /Report.html",
+    "href": "posts/Week9_qmd /Report.html",
+    "title": "Video game review report",
+    "section": "",
+    "text": "This report summarises reviews submitted for Video Game products on Amazon from 1999 to 2018 made available by Ni et al. (2019). In total there are 497577 reviews in the dataset."
+  },
+  {
+    "objectID": "posts/Week9_qmd /Report.html#number-of-reviews-by-year",
+    "href": "posts/Week9_qmd /Report.html#number-of-reviews-by-year",
+    "title": "Video game review report",
+    "section": "Number of Reviews by Year:",
+    "text": "Number of Reviews by Year:\nThe below histogram shows the number of video game reviews submitted to Amazon by year. From 1999 reviews largely increased year-on-year which is unsurprising given the growth of Amazon and access to the internet. The dataset shows the peak number of reviews was 2015 with a decline from 2016 to 2018. It is likely that this reflects the dataset being incomplete for recent years rather than the number of reviews declining in reality. Number of reviews per year:"
+  },
+  {
+    "objectID": "posts/Week9_qmd /Report.html#verified-users",
+    "href": "posts/Week9_qmd /Report.html#verified-users",
+    "title": "Video game review report",
+    "section": "Verified Users:",
+    "text": "Verified Users:\nThe dataset contains details of whether the review was based on a verified purchase.From Amazon Community:\n\nAn “Amazon Verified Purchase” review means that we’ve verified that the person writing the review purchased the product from Amazon, and didn’t receive the product at a big discount. Reviews that are not marked “Amazon Verified Purchase” are valuable as well, but, either we cannot confirm that the product was purchased from Amazon, or that the customer paid a price that is available to most Amazon shoppers.\n\nTable 1 shows the number of reviews based on verified and unverified purchases.\n\n\n\n\nTable 1: Number of reviews by purchase status\n\n\nverified\ncounts\n\n\n\n\nFALSE\n164932\n\n\nTRUE\n332645\n\n\n\n\n\n\nWhilst the number of verified reviews is substantially larger than the number of unverified reviews, the below histogram demonstrates that this has not been a consistent trend and that the large increase in the number of reviews is largely driven by an increase in verified reviews.\n\n\n`summarise()` has grouped output by 'year'. You can override using the\n`.groups` argument."
+  },
+  {
+    "objectID": "posts/Week9_qmd /Report.html#report-overview",
+    "href": "posts/Week9_qmd /Report.html#report-overview",
+    "title": "Video game review report",
+    "section": "Report Overview:",
+    "text": "Report Overview:\nThis report summarises reviews submitted for Video Game products on Amazon from 1999 to 2018 made available by Ni et al. (2019). In total there are 497577 reviews in the dataset."
+  },
+  {
+    "objectID": "posts/Week9_qmd /Report.html#review-ratings",
+    "href": "posts/Week9_qmd /Report.html#review-ratings",
+    "title": "Video game review report",
+    "section": "Review ratings:",
+    "text": "Review ratings:"
+  },
+  {
+    "objectID": "posts/Week9_qmd /Report.html#overall",
+    "href": "posts/Week9_qmd /Report.html#overall",
+    "title": "Video game review report",
+    "section": "Overall",
+    "text": "Overall\nAmazon review ratings are provided on a scale of 1 (worst) to 5 (best) stars. The histogram below shows the total number of reviews assigned each rating."
+  },
+  {
+    "objectID": "posts/Week9_qmd /Report.html#by-purchase-status",
+    "href": "posts/Week9_qmd /Report.html#by-purchase-status",
+    "title": "Video game review report",
+    "section": "By purchase status",
+    "text": "By purchase status\nHowever, if you break this data down by verified purchases status you can see that whilst the number of verified and unverified reviews with 1 to 4 star reviews are similar, there is a very large number of 5 star reviews for verified purchases compared to unverified purchases.\n\n\n`summarise()` has grouped output by 'rating'. You can override using the\n`.groups` argument."
   }
 ]

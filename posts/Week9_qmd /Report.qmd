@@ -159,3 +159,53 @@ ggplot(data = rating_by_verified_counts,
 
 ```
 
+# Average ratings
+
+## By purchase status
+
+Average ratings for verified reviews were higher (both mean and median) than for unverified review, likely driven by the number of 5-star reviews for verified reviews.
+
+```{r, echo= FALSE}
+#| label: tbl-verified-descriptive
+#| tbl-cap: Average ratings by purchase status
+#Get mean and median ratings by verified users
+verified_descriptives <- review_data %>%
+  group_by(verified) %>%
+  summarize(`Mean rating` = round(mean(rating), digits=2),
+            `Median rating` = median(rating)) %>%
+  rename(Verified = verified)
+# print table
+knitr::kable(verified_descriptives)
+```
+
+## By year and purchase status
+
+Average ratings for verified purchases tended to increase over time, while average ratings for unverified purchases tended to decrease over time.
+
+```{r, echo=FALSE}
+year_rating_status <- review_data %>%
+  group_by(year,verified) %>%
+  summarise(mean_rating = mean(rating),.groups = 'drop')
+# plot
+ggplot(data = year_rating_status, 
+       mapping = aes(x=year, 
+                     y=mean_rating, 
+                     group = verified,
+                     color = verified))+
+  geom_line()+
+  geom_point()+
+  scale_x_continuous(breaks = 1999:2018)+
+  scale_color_manual(values = c('#1b9e77','#d95f02'))+
+  theme(axis.text.x = element_text(angle = 85, vjust = 1, hjust=1))+
+  xlab("")+
+  ylab("")+
+  ggtitle("Average Ratings",
+          subtitle = "By year and purchase status")+
+  theme(
+    panel.background = element_rect(fill = "lightgrey",
+                                colour = "lightgrey",
+                                linewidth = 0.5, linetype = "solid"),
+    panel.grid.major=element_line(colour="black",linewidth = .05),
+    panel.grid.minor=element_line(colour="lightgrey"))
+```
+

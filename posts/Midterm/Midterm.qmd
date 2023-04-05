@@ -428,7 +428,7 @@ play_game <- function() {
   number_of_rolls <- 0
   position <- 0  # start at the beginning of the board
   
-  while(position < 25) {
+  while(total_sum < 25) {
     number_of_rolls <- number_of_rolls + 1
     roll <- sample(c(1, 2, 3, 4, 5, 6), 1)
     total_sum <- total_sum + roll
@@ -445,50 +445,9 @@ play_game <- function() {
   number_of_rolls
 }
 
-# Record the results from multiple simulations
-set.seed(123)
-save_rolls <- replicate(100, play_game())
+
+save_rolls <- replicate(1000, play_game())
 
 # Estimate the average number of rolls needed to successfully complete the game
 mean(save_rolls)
 ```
-
-
-
-```{r}
-save_rolls<- c()
-for(sims in 1:100){
-  curpos<-0 
-  number_of_rolls<-0
-
-while(curpos < 25){
-  curpos <- curpos+sample(c(1,2,3,4,5, 6) ,1)
-
- if ( curpos == 1){
-curpos<-6
-}
-if (curpos == 6) {
-  curpos<-9
-}
-
-if ( curpos == 9) {
- curpos<- 12
-}
-if ( curpos == 12) 
- curpos<-17
-if ( curpos ==17) {
- curpos<-20
-}
-if ( curpos == 20) {
- curpos<-24
-}
-if (curpos==24){
- curpos<-84
-}
-number_of_rolls <- number_of_rolls+1
-}
-save_rolls[sims]<- number_of_rolls
-}
-mean(save_rolls)
-```
-

@@ -865,7 +865,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rolling a dice with sample</span></span>
 <span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>),<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
+<pre><code>[1] 5</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 5</span></span>
 <span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>),<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -875,7 +875,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4</span></span>
 <span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>),<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
+<pre><code>[1] 5</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -890,7 +890,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb130-6"><a href="#cb130-6" aria-hidden="true" tabindex="-1"></a>  number_of_rolls <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb130-7"><a href="#cb130-7" aria-hidden="true" tabindex="-1"></a>  position <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># start at the beginning of the board</span></span>
 <span id="cb130-8"><a href="#cb130-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb130-9"><a href="#cb130-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span>(position <span class="sc">&lt;</span> <span class="dv">25</span>) {</span>
+<span id="cb130-9"><a href="#cb130-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span>(total_sum <span class="sc">&lt;</span> <span class="dv">25</span>) {</span>
 <span id="cb130-10"><a href="#cb130-10" aria-hidden="true" tabindex="-1"></a>    number_of_rolls <span class="ot">&lt;-</span> number_of_rolls <span class="sc">+</span> <span class="dv">1</span></span>
 <span id="cb130-11"><a href="#cb130-11" aria-hidden="true" tabindex="-1"></a>    roll <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>), <span class="dv">1</span>)</span>
 <span id="cb130-12"><a href="#cb130-12" aria-hidden="true" tabindex="-1"></a>    total_sum <span class="ot">&lt;-</span> total_sum <span class="sc">+</span> roll</span>
@@ -907,53 +907,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb130-23"><a href="#cb130-23" aria-hidden="true" tabindex="-1"></a>  number_of_rolls</span>
 <span id="cb130-24"><a href="#cb130-24" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb130-25"><a href="#cb130-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-26"><a href="#cb130-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Record the results from multiple simulations</span></span>
-<span id="cb130-27"><a href="#cb130-27" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb130-28"><a href="#cb130-28" aria-hidden="true" tabindex="-1"></a>save_rolls <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">100</span>, <span class="fu">play_game</span>())</span>
-<span id="cb130-29"><a href="#cb130-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-30"><a href="#cb130-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate the average number of rolls needed to successfully complete the game</span></span>
-<span id="cb130-31"><a href="#cb130-31" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(save_rolls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb130-26"><a href="#cb130-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-27"><a href="#cb130-27" aria-hidden="true" tabindex="-1"></a>save_rolls <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">play_game</span>())</span>
+<span id="cb130-28"><a href="#cb130-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-29"><a href="#cb130-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate the average number of rolls needed to successfully complete the game</span></span>
+<span id="cb130-30"><a href="#cb130-30" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(save_rolls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.71</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a>save_rolls<span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(sims <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){</span>
-<span id="cb132-3"><a href="#cb132-3" aria-hidden="true" tabindex="-1"></a>  curpos<span class="ot">&lt;-</span><span class="dv">0</span> </span>
-<span id="cb132-4"><a href="#cb132-4" aria-hidden="true" tabindex="-1"></a>  number_of_rolls<span class="ot">&lt;-</span><span class="dv">0</span></span>
-<span id="cb132-5"><a href="#cb132-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-6"><a href="#cb132-6" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(curpos <span class="sc">&lt;</span> <span class="dv">25</span>){</span>
-<span id="cb132-7"><a href="#cb132-7" aria-hidden="true" tabindex="-1"></a>  curpos <span class="ot">&lt;-</span> curpos<span class="sc">+</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>, <span class="dv">6</span>) ,<span class="dv">1</span>)</span>
-<span id="cb132-8"><a href="#cb132-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-9"><a href="#cb132-9" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span> ( curpos <span class="sc">==</span> <span class="dv">1</span>){</span>
-<span id="cb132-10"><a href="#cb132-10" aria-hidden="true" tabindex="-1"></a>curpos<span class="ot">&lt;-</span><span class="dv">6</span></span>
-<span id="cb132-11"><a href="#cb132-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb132-12"><a href="#cb132-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (curpos <span class="sc">==</span> <span class="dv">6</span>) {</span>
-<span id="cb132-13"><a href="#cb132-13" aria-hidden="true" tabindex="-1"></a>  curpos<span class="ot">&lt;-</span><span class="dv">9</span></span>
-<span id="cb132-14"><a href="#cb132-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb132-15"><a href="#cb132-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-16"><a href="#cb132-16" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ( curpos <span class="sc">==</span> <span class="dv">9</span>) {</span>
-<span id="cb132-17"><a href="#cb132-17" aria-hidden="true" tabindex="-1"></a> curpos<span class="ot">&lt;-</span> <span class="dv">12</span></span>
-<span id="cb132-18"><a href="#cb132-18" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb132-19"><a href="#cb132-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ( curpos <span class="sc">==</span> <span class="dv">12</span>) </span>
-<span id="cb132-20"><a href="#cb132-20" aria-hidden="true" tabindex="-1"></a> curpos<span class="ot">&lt;-</span><span class="dv">17</span></span>
-<span id="cb132-21"><a href="#cb132-21" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ( curpos <span class="sc">==</span><span class="dv">17</span>) {</span>
-<span id="cb132-22"><a href="#cb132-22" aria-hidden="true" tabindex="-1"></a> curpos<span class="ot">&lt;-</span><span class="dv">20</span></span>
-<span id="cb132-23"><a href="#cb132-23" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb132-24"><a href="#cb132-24" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ( curpos <span class="sc">==</span> <span class="dv">20</span>) {</span>
-<span id="cb132-25"><a href="#cb132-25" aria-hidden="true" tabindex="-1"></a> curpos<span class="ot">&lt;-</span><span class="dv">24</span></span>
-<span id="cb132-26"><a href="#cb132-26" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb132-27"><a href="#cb132-27" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (curpos<span class="sc">==</span><span class="dv">24</span>){</span>
-<span id="cb132-28"><a href="#cb132-28" aria-hidden="true" tabindex="-1"></a> curpos<span class="ot">&lt;-</span><span class="dv">84</span></span>
-<span id="cb132-29"><a href="#cb132-29" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb132-30"><a href="#cb132-30" aria-hidden="true" tabindex="-1"></a>number_of_rolls <span class="ot">&lt;-</span> number_of_rolls<span class="sc">+</span><span class="dv">1</span></span>
-<span id="cb132-31"><a href="#cb132-31" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb132-32"><a href="#cb132-32" aria-hidden="true" tabindex="-1"></a>save_rolls[sims]<span class="ot">&lt;-</span> number_of_rolls</span>
-<span id="cb132-33"><a href="#cb132-33" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb132-34"><a href="#cb132-34" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(save_rolls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.88</code></pre>
+<pre><code>[1] 7.572</code></pre>
 </div>
 </div>
 

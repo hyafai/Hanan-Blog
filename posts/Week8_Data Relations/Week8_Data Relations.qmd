@@ -1,0 +1,94 @@
+---
+title: "Week8_Data Relations"
+author: "Hanan Yafai"
+date: "2023-03-29"
+categories: [notes]
+image: "logo.png"
+theme: "pulse"
+html_document:
+ toc: TRUE
+---
+
+```{r setup, include=FALSE}
+library(tidyverse) # for data wrangling
+
+```
+
+```{r}
+customers <- tibble(
+  id = 1:5,
+  city = c("Port Ellen", "Dufftown", NA, "Aberlour", "Tobermory"),
+  postcode = c("PA42 7DU", "AB55 4DH", NA, "AB38 7RY", "PA75 6NR")
+)
+
+orders <- tibble(
+  id = c(2, 3, 4, 4, 5, 5, 6, 6, 7),
+  items = c(10, 18, 21, 23, 9, 11, 11, 12, 3)
+)
+```
+
+**\## what doers dplyr mutate do?**
+
+```{r}
+
+orders_B <- tibble(
+  id = c(2, 3, 4, 4, 5, 5, 6, 6, 7),
+  items = c(10, 18, 21, 23, 9, 11, 11, 12, 3)
+)
+
+# add a new column
+orders_B %>%
+  mutate(satisfaction = NA)
+
+# add mutiplie new column
+orders_B %>%
+  mutate(satisfaction = NA,
+         numbers = 1:9)
+
+# assign back to tibble
+orders_B <- orders_B %>%
+              mutate(satisfaction = NA,
+                     numbers = 1:9)
+
+
+orders_B %>%
+  mutate(numbers_as_strings = as.character(numbers))
+
+orders_B %>%
+  mutate(items_minus_id = items - id)
+
+```
+
+**\## Dplyr filter**
+
+```{r}
+
+full_data <- full_join(customers, orders, by = "id")
+full_data
+
+
+full_data %>%
+  filter(items > 10)
+
+
+full_data %>%
+  filter(postcode == "AB38 7RY")
+
+full_data %>%
+  filter(postcode == "AB38 7RY" & items > 21)
+
+full_data %>%
+  filter(postcode == "AB38 7RY",
+         items > 21)
+
+full_data %>%
+  filter(city != "Aberlour")
+
+full_data %>%
+  filter( is.na(city) == FALSE,
+          is.na(items) == FALSE)
+
+full_data %>%
+  filter( is.na(city) == TRUE | is.na(items) == TRUE)
+
+```

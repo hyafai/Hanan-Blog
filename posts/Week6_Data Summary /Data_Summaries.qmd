@@ -1,0 +1,124 @@
+---
+title: " Data_Summaries"
+author: "Hanan Yafai"
+date: "2023-02-29"
+categories: [notes]
+image: "logo.png"
+theme: "pulse"
+html_document:
+ toc: TRUE
+---
+
+```{r  include= FALSE}
+library(tidyverse)   # data wrangling functions
+library(rtweet)      # for searching tweets
+library(kableExtra)  # for nice tables
+```
+
+```{r}
+
+tweets<- readRDS("ncod_tweets.rds")
+
+hist(tweets$favorite_count)
+
+ggplot(tweets, aes(x= favorite_count))+
+  geom_histogram ()
+
+library(dplyr)
+
+filtered_data <- tweets %>%
+  filter()
+```
+
+-   **The summarise() function from the dplyr package is loaded as part of the tidyverse and creates summary statistics. It creates a new table with columns that summarise the data from a larger table using summary functions.**
+
+```{r}
+favorite_summary<- summarise(tweets,
+                             mean_favs= mean(favorite_count),
+                             median_favs= median(favorite_count),
+                             min_favs= min(favorite_count),
+                             sd_favs= sd(favorite_count))
+
+favorite_summary
+```
+
+```{r}
+ggplot(tweets, aes(x = favorite_count)) +
+  geom_histogram(bins = 25) +
+  scale_x_continuous(trans = "pseudo_log", 
+                     breaks = c(0, 1, 10, 100, 1000, 10000))
+```
+
+```{r}
+tweet_summary <- tweets %>%
+  summarise(mean_favs = mean(favorite_count),
+            median_favs = quantile(favorite_count, .5),
+            n = n(),
+            min_date = min(created_at),
+            max_date = max(created_at))
+
+glimpse(tweet_summary)
+```
+
+-   **The \$ operator: The dollar sign allows you to select items from an object, such as columns from a table. The left-hand side is the object, and the right-hand side is the item. When you call a column like this, R will print all the observations in that column:**
+
+```{r}
+tweet_summary$mean_favs
+tweets$source[1] # select one observation
+tweets$display_text_width[c(20,30,40)] # select multiple with c()
+```
+
+-   **Pipes allow you to send the output from one function straight into another function. Specifically, they send the result of the function before %\>% to be the first argument of the function after %\>%. It can be useful to translate the pipe as "and then":**
+
+```{r}
+
+tweet_summary <- tweets %>% # start with the object tweets and then
+  summarise(mean_favs = mean(favorite_count), #summarise it
+            median_favs = median(favorite_count))
+```
+
+Inline coding To insert those values into the text of a report you can use inline coding. First. we'll create another set of objects that contain the first and last date of the tweets in our dataset. format() formats the dates to day/month/year.
+
+```{r}
+
+date_from <- tweet_summary$min_date %>% 
+  format("%d %B, %Y")
+date_to <- tweet_summary$max_date %>% 
+  format("%d %B, %Y")
+```
+
+There were `r tweet_summary$n` tweets between `r date_from` and `r date_to`.
+
+-   Extra challenge
+
+Using the open NYC data source i picked the following data set : Art_in_DOE_Buildings
+
+```{r}
+library(readr)
+Art_in_DOE_buildings <- read_csv("Art_in_DOE_buildings.csv")
+View(Art_in_DOE_buildings)
+
+```
+
+```{r}
+NYC_School_Art <- summarise(Art_in_DOE_buildings,
+                      Artist_FirstName,
+                      Artist_Lastname,
+                      `Artwork Title`,
+                      `School Name`,
+                      `Artwork Year`,
+                      Borough)
+                                 
+NYC_School_Art
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(NYC_School_Art, aes(x = Borough)) +
+  geom_bar() +
+  scale_x_discrete() +
+  scale_y_log10()
+
+
+```

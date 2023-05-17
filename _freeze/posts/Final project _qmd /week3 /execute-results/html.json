@@ -1,0 +1,14 @@
+{
+  "hash": "2ae583c6938fd3e152784a7da83dafe8",
+  "result": {
+    "markdown": "---\ntitle: \"Final Project_qmd\"\nauthor: \"Hanan Yafai\"\ndate: \"2023-05-15\"\ncategories: [notes]\nimage: \"logo.png\"\ntheme: \"pulse\"\nhtml_document:\n toc: TRUE\n---\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

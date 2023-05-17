@@ -2,16 +2,21 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Final project _qmd /final_project.html",
+      "/posts/Data Wrangling/Data_Wrangling.html",
+      "/posts/week3_qmd /week3 .html",
+      "/posts/Week_12/Week_12.html",
       "/posts/Midterm/Midterm.html",
-      "/posts/Week6_qmd/Data_Summaries.html",
-      "/posts/Week9_qmd /Report.html",
+      "/posts/Week6_Data Summary /Data_Summaries.html",
+      "/posts/Week8_Data Relations/Week8_Data Relations.html",
+      "/posts/Week9_Video Game report /Report.html",
+      "/posts/Week7_More ggplot/ More_ggplot .html",
       "/posts/Week 4_Data vis/data vis.html",
       "/posts/week5_ Data import /Week5_Data import.html",
-      "/posts/week3_qmd /week3 .html",
-      "/posts/Week7_qmd / more ggplot .html",
       "/posts/tips sheet /index.html",
       "/posts/post-with-code/index.html",
-      "/posts/my new posts /index.html"
+      "/posts/my new posts /index.html",
+      "/posts/Final project _qmd /finals.html"
     ]
   }
 ]

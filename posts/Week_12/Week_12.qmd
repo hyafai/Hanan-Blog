@@ -1,0 +1,149 @@
+---
+title: " Week1_Tidy Data"
+author: "Hanan Yafai"
+date: "2023-04-17"
+categories: [notes]
+image: "logo.png"
+theme: "pulse"
+html_document:
+ toc: TRUE
+---
+
+```{r setup, include=FALSE}
+
+library(tidyverse) # for data wrangling
+
+```
+
+```{r echo=FALSE}
+##looking at the data
+tuesdata <- tidytuesdayR::tt_load('2023-05-02') 
+plots <- tuesdata$plots
+species <- tuesdata$species
+surveys <- tuesdata$surveys 
+```
+
+```{r}
+
+```
+
+
+This is an example of attempting a tidy tuesday challenge for May 2nd, 2023.
+
+The data for this challenge is available at:
+
+<https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-05-02/readme.md>
+
+```{r}
+#| eval: false
+#install.packages("tidytuesdayR")
+```
+
+## load libraries
+
+```{r}
+library(tidyverse)
+```
+
+## load data using the tidytuesdayR package
+
+```{r}
+tuesdata <- tidytuesdayR::tt_load('2023-05-02')
+
+plots <- tuesdata$plots
+species <- tuesdata$species
+surveys <- tuesdata$surveys
+
+```
+
+## mice per year
+
+```{r}
+mice_count_by_year <- surveys %>%
+  group_by(year) %>%
+  count()
+
+ggplot(mice_count_by_year, aes(x= year, y=n))+
+  geom_line() +
+  geom_point()+
+  ggtitle("Mice count by year")+
+  scale_x_continuous(breaks=seq(1980,2020,5))
+```
+
+## mice per year by sex
+
+```{r}
+mice_count_by_year_sex <- surveys %>%
+  group_by(year,sex) %>%
+  count()
+
+ggplot(mice_count_by_year_sex, aes(x= year, y=n, color=sex))+
+  geom_line() +
+  ggtitle("Mice count by year and sex")+
+  scale_x_continuous(breaks=seq(1980,2020,5))
+```
+
+## mice per year by species
+
+```{r}
+mice_count_by_year_species <- surveys %>%
+  group_by(year,species) %>%
+  count()
+
+ggplot(mice_count_by_year_species, aes(x= year, 
+                                       y=n, 
+                                       color=species,
+                                       shape= species))+
+  geom_line() +
+  geom_point() +
+  ggtitle("Mice count by year and species")+
+  scale_x_continuous(breaks=seq(1980,2020,5))
+
+ggplot(mice_count_by_year_species, aes(x= year, 
+                                       y=n, 
+                                       color=species))+
+  geom_line() +
+  geom_point() +
+  ggtitle("Mice count by year and species")+
+  scale_x_continuous(breaks=seq(1980,2020,5)) +
+  facet_wrap(~species)
+```
+
+## Pregnancy by month
+
+```{r}
+
+monthly_data <- surveys %>%
+  mutate(month_string = lubridate::month(censusdate,label= T)) %>%
+  group_by(month) %>%
+  count(pregnant) %>%
+  pivot_wider(names_from=pregnant, values_from = n) %>%
+  mutate(proportion_pregnant = P/(P+`NA`))
+
+ggplot(monthly_data, aes(x=month, y=proportion_pregnant))+
+  geom_line()
+
+```
+
+## bob ross
+
+```{r}
+tuesdata <- tidytuesdayR::tt_load('2023-02-21')
+#tuesdata <- tidytuesdayR::tt_load(2023, week = 8)
+
+bob_ross <- tuesdata$bob_ross
+
+```
+
+```{r}
+ggplot(bob_ross, aes(x=num_colors))+
+  geom_histogram()
+
+```
+
+```{r}
+bob_ross_longer <- bob_ross %>%
+  pivot_longer(10:27) %>%
+  group_by(name) %>%
+  summarize(count = sum(value))
+```

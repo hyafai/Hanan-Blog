@@ -2,6 +2,7 @@
 title: 'Food Is All Around: How Contexts Create Misbeliefs About the Health–Taste Relationship'
 author: "HANAN YAFAI"
 date: "`r Sys.Date()`"
+image: "logo.jpeg"
 output:
   html_document:
     df_print: paged

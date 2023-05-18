@@ -1,0 +1,14 @@
+{
+  "hash": "e90da5f5d0498891aea4065b4b73f136",
+  "result": {
+    "markdown": "---\ntitle: \"Week12_qmd\"\nauthor: \"Hanan Yafai\"\ndate: \"2023-04-17\"\ncategories: [notes]\nimage: \"logo.png\"\ntheme: \"pulse\"\nhtml_document:\n toc: TRUE\n---\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

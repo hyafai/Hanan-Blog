@@ -1,7 +1,7 @@
 ---
-title: " Week1_Tidy Data"
+title: " Week12_Customization,Tidy Tusday "
 author: "Hanan Yafai"
-date: "2023-04-17"
+date: "2023-05-10"
 categories: [notes]
 image: "logo.png"
 theme: "pulse"
@@ -15,7 +15,7 @@ library(tidyverse) # for data wrangling
 
 ```
 
-```{r echo=FALSE}
+```{r, include=FALSE}
 ##looking at the data
 tuesdata <- tidytuesdayR::tt_load('2023-05-02') 
 plots <- tuesdata$plots
@@ -24,24 +24,22 @@ surveys <- tuesdata$surveys
 ```
 
 ```{r}
-
 ```
 
-
-This is an example of attempting a tidy tuesday challenge for May 2nd, 2023.
+This is an example of attempting a tidy Tuesday challenge for May 2nd, 2023.
 
 The data for this challenge is available at:
 
 <https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-05-02/readme.md>
 
-```{r}
+```{r, include=FALSE}
 #| eval: false
 #install.packages("tidytuesdayR")
 ```
 
 ## load libraries
 
-```{r}
+```{r, include=FALSE}
 library(tidyverse)
 ```
 
@@ -56,9 +54,10 @@ surveys <- tuesdata$surveys
 
 ```
 
-## mice per year
+## Mice per year
 
 ```{r}
+#| code-fold: true
 mice_count_by_year <- surveys %>%
   group_by(year) %>%
   count()
@@ -70,9 +69,10 @@ ggplot(mice_count_by_year, aes(x= year, y=n))+
   scale_x_continuous(breaks=seq(1980,2020,5))
 ```
 
-## mice per year by sex
+## Mice per year by sex
 
 ```{r}
+#| code-fold: true
 mice_count_by_year_sex <- surveys %>%
   group_by(year,sex) %>%
   count()
@@ -83,9 +83,10 @@ ggplot(mice_count_by_year_sex, aes(x= year, y=n, color=sex))+
   scale_x_continuous(breaks=seq(1980,2020,5))
 ```
 
-## mice per year by species
+## Mice per year by species
 
 ```{r}
+#| code-fold: true
 mice_count_by_year_species <- surveys %>%
   group_by(year,species) %>%
   count()
@@ -112,6 +113,7 @@ ggplot(mice_count_by_year_species, aes(x= year,
 ## Pregnancy by month
 
 ```{r}
+#| code-fold: true
 
 monthly_data <- surveys %>%
   mutate(month_string = lubridate::month(censusdate,label= T)) %>%
@@ -128,6 +130,7 @@ ggplot(monthly_data, aes(x=month, y=proportion_pregnant))+
 ## bob ross
 
 ```{r}
+#| code-fold: true
 tuesdata <- tidytuesdayR::tt_load('2023-02-21')
 #tuesdata <- tidytuesdayR::tt_load(2023, week = 8)
 

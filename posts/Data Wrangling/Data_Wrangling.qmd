@@ -18,7 +18,7 @@ library(tidyverse)
 budget <- read_csv("data/budget.csv", show_col_types = FALSE)
 ```
 
-## Select
+## Select:
 
 ```{r, echo=FALSE}
 # select single column by name
@@ -175,7 +175,7 @@ budget %>%
 
 ## Mutate
 
-```{r}
+```{r, include=FALSE}
 budget2 <- budget %>%
   mutate(
     sales = sales_2019 + sales_2020,
@@ -368,5 +368,3 @@ ggplot(
   )
 
 ```
-
-\`\`\`

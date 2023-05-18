@@ -1,0 +1,15 @@
+---
+title: "Week12_qmd"
+author: "Hanan Yafai"
+date: "2023-04-17"
+categories: [notes]
+image: "logo.png"
+theme: "pulse"
+html_document:
+ toc: TRUE
+---
+
+```{r setup, include=FALSE}
+
+library(tidyverse) # for data wrangling
+```

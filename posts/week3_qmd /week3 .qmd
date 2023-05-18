@@ -1,16 +1,88 @@
 ---
-title: "Week12_qmd"
+title: "Week 13: Slide decks with revealjs"
 author: "Hanan Yafai"
-date: "2023-04-17"
-categories: [notes]
-image: "logo.png"
-theme: "pulse"
-html_document:
- toc: TRUE
+date: "2023-05-08"
+format: 
+  revealjs:
+    incremental: true
+    background-color: purple
 ---
 
-```{r setup, include=FALSE}
+## The Origin of the high five:
+- The origin of the high five is a subject of some debate, but one popular theory attributes its beginnings to professional baseball. 
 
-library(tidyverse) # for data wrangling
-```
+## The history 
 
+::: {.nonincremental}
+- The story goes that on October 2, 1977, Dusty Baker, an outfielder for the Los Angeles Dodgers, hit his 30th home run of the season. As he crossed home plate, his teammate Glenn Burke, waiting to bat next, raised his hand in celebration. In a spontaneous moment of joy, Baker reciprocated the gesture by slapping Burke's raised hand with his own, creating what would later be known as the high five.
+:::
+
+## Time for celebration?
+
+::: {.myclass}
+
+This simple act of camaraderie and celebration quickly caught on, spreading throughout the world of sports.
+
+:::
+
+Athletes began using the high five as a way to acknowledge their teammates' achievements, share excitement, and boost morale. 
+
+. . .
+
+
+## How did the hi 5 spread socially? 
+
+:::: {.columns}
+
+::: {.column width="40%"}
+From there, the high five transitioned beyond sports and became a popular gesture in various social contexts:  
+:::
+
+::: {.column width="60%"}
+- friendships
+- greetings
+- expressions of congratulations.
+
+:::
+
+::::
+
+:::
+
+
+## Time for a FUN THEORY {background-color="purple"}
+
+---
+
+::: {.r-fit-text}
+SO is it really that baseball match who started it all ? really ??
+:::
+
+## {auto-animate=true}
+
+
+:::{style="margin-top: 200px; font-size: 1em; color: grey;"}
+
+While the Dusty Baker and Glenn Burke incident is often credited as the catalyst for the high five's popularity, it's important to note that similar hand-slapping gestures have existed in different cultures and time periods. 
+:::
+## {auto-animate=true}
+
+:::{style="margin-top: 200px; font-size: 1em; color: blue;"}
+The specific origins of those earlier gestures may be difficult to trace, but the widespread adoption of the high five in modern society can be attributed to its introduction and popularity in the sports world.
+:::
+
+
+## {auto-animate=true}
+According to this theory, cavemen, known for their exuberance and camaraderie, would have raised their hands and slapped them together as a way to express joy and unity. 
+
+::: {.r-fit-text}
+ Picture a group of cavemen successfully hunting a large animal or discovering a new food source. In their excitement and triumph, they would have instinctively raised their hands and enthusiastically slapped them together, celebrating their accomplishment.
+
+:::
+
+## {auto-animate=true}
+:::{style="margin-top: 100px; font-size: 3em; color: red;"}
+I LIKE
+THE CAVEMEN 
+THEORY TO BE HONEST 
+:::

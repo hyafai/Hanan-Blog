@@ -2,8 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/Data Wrangling/Data_Wrangling.html",
+      "/posts/Final project _qmd /finals.html",
       "/posts/week3_qmd /week3 .html",
+      "/posts/Data Wrangling/Data_Wrangling.html",
+      "/posts/Week13_slides_qmd /Slides.html",
       "/posts/Week_12/Week_12.html",
       "/posts/Midterm/Midterm.html",
       "/posts/Week6_Data Summary /Data_Summaries.html",
@@ -14,8 +16,7 @@
       "/posts/week5_ Data import /Week5_Data import.html",
       "/posts/tips sheet /index.html",
       "/posts/post-with-code/index.html",
-      "/posts/my new posts /index.html",
-      "/posts/Final project _qmd /finals.html"
+      "/posts/my new posts /index.html"
     ]
   }
 ]
